@@ -1,11 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2020/6/8
-  Time: 16:34
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8"  isELIgnored="false" language="java" %>
 <html>
 <head>
@@ -13,17 +6,21 @@
 </head>
 <body>
 
-
-<form action="submitlist">
-
-
-    <c:forEach var="item" items="${itemsList}">
+<form action="updateItems">
+<c:forEach items="${itemsList }" var="item" varStatus="s">
     <tr>
-        <td><input type="text" name = "" value="${item.name}" /></td>
+        <td><input type="checkbox" name="ids" value="${item.id}"/></td>
+        <td>
+            <input type="input" name="itemList[${s.index}].name" value="${item.name }"/>
+        </td>
+        <td>
+            <input type="input" name="itemList[${s.index}].price" value="${item.price }"/>
+        </td>
+
     </tr>
-    </c:forEach>
+</c:forEach>
 
-
+    <input type="submit"/>
 </form>
 
 </body>

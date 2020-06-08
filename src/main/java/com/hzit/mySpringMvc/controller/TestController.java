@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletException;
@@ -187,7 +186,7 @@ public class TestController {
         Items items = new Items();
 
         items.setId("1");
-        items.setName("2");
+        items.setName("电脑");
         items.setPrice("200");
 
         itemsList.add(items);
@@ -195,7 +194,7 @@ public class TestController {
         items = new Items();
 
         items.setId("4");
-        items.setName("5");
+        items.setName("手机");
         items.setPrice("800");
 
         itemsList.add(items);
@@ -206,27 +205,32 @@ public class TestController {
         return "list";
     }
 
-    /**
-     * 获取页面传的list
-     * @param queryVo
-     * @return
-     */
-    @RequestMapping("/submitlist")
-    public String submitlist(QueryVo queryVo,HttpServletRequest request){
+//    /**
+//     * 获取页面传的list
+//     * @param queryVo
+//     * @return
+//     */
+//    @RequestMapping("/submitlist")
+//    public String submitlist(QueryVo itemList,HttpServletRequest request){
+//
+//        System.out.println("------------------" + request.getParameter("itemsList"));
+//
+//        System.out.println("queryVo.size()=" + itemList.getItemList());
+//
+//        return "list";
+//    }
 
-        System.out.println("------------------" + request.getParameter("itemsList"));
 
-        System.out.println("queryVo.size()=" + queryVo.getItemsList().size());
 
-        return "list";
+
+
+    //批量修改
+    @RequestMapping(value = "/updateItems")
+    public String updateItems(QueryVo queryVo){
+        System.out.println(queryVo.getItemList().size());
+
+        return "success";
     }
-
-
-
-
-
-
-
 
 
 

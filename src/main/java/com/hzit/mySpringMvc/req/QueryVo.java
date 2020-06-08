@@ -5,13 +5,13 @@ import java.util.List;
 
 public class QueryVo {
 
-   private List<Items> itemsList = new ArrayList<Items>();
+    private List<Items> itemList;//商品列表
 
-    public List<Items> getItemsList() {
-        return itemsList;
+    public List<Items> getItemList() {
+        return itemList;
     }
 
-    public void setItemsList(List<Items> itemsList) {
-        this.itemsList = itemsList;
+    public void setItemList(List<Items> itemList) {
+        this.itemList = itemList;
     }
 }
