@@ -180,54 +180,34 @@ public class TestController {
      */
     @RequestMapping("/list")
     public String list(Model model){
-
         List<Items> itemsList = new ArrayList<Items>();
 
         Items items = new Items();
-
         items.setId("1");
         items.setName("电脑");
         items.setPrice("200");
-
         itemsList.add(items);
 
         items = new Items();
-
         items.setId("4");
         items.setName("手机");
         items.setPrice("800");
-
         itemsList.add(items);
-
-
         model.addAttribute("itemsList",itemsList);
-
         return "list";
     }
 
-//    /**
-//     * 获取页面传的list
-//     * @param queryVo
-//     * @return
-//     */
-//    @RequestMapping("/submitlist")
-//    public String submitlist(QueryVo itemList,HttpServletRequest request){
-//
-//        System.out.println("------------------" + request.getParameter("itemsList"));
-//
-//        System.out.println("queryVo.size()=" + itemList.getItemList());
-//
-//        return "list";
-//    }
-
-
-
-
-
-    //批量修改
+    /**
+     * 提交list
+     * @param queryVo
+     * @return
+     */
     @RequestMapping(value = "/updateItems")
     public String updateItems(QueryVo queryVo){
         System.out.println(queryVo.getItemList().size());
+
+        String name = (String)queryVo.getItemInfo().get("name");
+        System.out.println("name = "+ name);
 
         return "success";
     }

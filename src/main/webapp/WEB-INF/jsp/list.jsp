@@ -7,12 +7,17 @@
 <body>
 
 <form action="updateItems">
-<c:forEach items="${itemsList }" var="item" varStatus="s">
+
+    姓名：<input type="text" name="itemInfo['name']"/>
+
+    <c:forEach items="${itemsList }" var="item" varStatus="s">
     <tr>
         <td><input type="checkbox" name="ids" value="${item.id}"/></td>
+
         <td>
             <input type="input" name="itemList[${s.index}].name" value="${item.name }"/>
         </td>
+
         <td>
             <input type="input" name="itemList[${s.index}].price" value="${item.price }"/>
         </td>
